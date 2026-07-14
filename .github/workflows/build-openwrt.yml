@@ -24,7 +24,8 @@ on:
 
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: v25.12.1   # 👈 这里改成了正确的 tag 名
+  # REPO_BRANCH: master   # 原始代码
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -193,8 +194,8 @@ jobs:
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
       with:
-        retain_days: 1
-        keep_minimum_runs: 3
+        retain_days: 5
+        keep_minimum_runs: 10
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.1
